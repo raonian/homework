@@ -58,10 +58,17 @@ export default class List extends PureComponent {
         });
         this.props.onPopupShow(id);
     }
+    formatResource(str) {
+        return str.split(',')
+            .map(i => i.trim())
+            .filter(function(s){return !!s;});
+    }
     addResource(item) {
+        const { resources } = this.state;
+        const res = new Set([...item.resources, ...this.formatResource(resources)]);
         this.props.addResource({
             ...item,
-            resources: item.resources.concat(this.state.resources.split(','))
+            resources: res
         });
         this.onPopupShow(-1);
     }
@@ -90,10 +97,10 @@ export default class List extends PureComponent {
                                     </div>
                                     <div className="detail">
                                         <div className="row">
-                                            <span className="name"><i className="iconfont icon-xianshiqi"></i><a>{o.name}</a></span>
-                                            <span className="type"><span className={o.status === 'building' ? 'orange' : 'green'}>{o.status}</span></span>
-                                            <span className="ip"><i className="iconfont icon-47"></i>{o.ip}</span>
-                                            <span className="location"><i className="iconfont icon-wenjianjia"></i>{o.location}</span>
+                                            <p className="name"><i className="iconfont icon-xianshiqi"></i><a>{o.name}</a></p>
+                                            <p className="type"><span className={o.status === 'building' ? 'orange' : 'green'}>{o.status}</span></p>
+                                            <p className="ip"><i className="iconfont icon-47"></i>{o.ip}</p>
+                                            <p className="location"><i className="iconfont icon-wenjianjia"></i>{o.location}</p>
                                         </div>
                                         <div className="row">
                                             <div className="row">

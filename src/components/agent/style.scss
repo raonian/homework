@@ -34,6 +34,9 @@
                     text-align: center;
                     div {
                         flex: 1;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                     }
                 }
             }
@@ -196,7 +199,7 @@
                         width: 130px;
                     }
                     .location {
-                        width: 150px;
+                        width: 160px;
                     }
                     .orange {
                         background: $orange;
@@ -332,6 +335,17 @@
 
                     .left, .right {
                         flex-direction: column;
+                    }
+                }
+            }
+        }
+
+        .list{
+            .item{
+                .img{
+                    // margin: 0;
+                    img{
+                        width: 0;
                     }
                 }
             }

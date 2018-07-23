@@ -49,14 +49,14 @@ export default class Cards extends Component {
                 </div>
                 <div className="card-item">
                     <div className="left">
-                        <div>ALL</div>
-                        <div>PHYSICAL</div>
-                        <div>VIRTUAL</div>
+                        <div><p>ALL</p></div>
+                        <div><p>PHYSICAL</p></div>
+                        <div><p>VIRTUAL</p></div>
                     </div>
                     <div className="right">
-                        <div>8</div>
-                        <div>4</div>
-                        <div>4</div>
+                        <div><p>8</p></div>
+                        <div><p>4</p></div>
+                        <div><p>4</p></div>
                     </div>
                 </div>
             </div>
