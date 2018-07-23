@@ -1,0 +1,16 @@
+{
+    "parser": "babel-eslint",
+    "plugins": [
+        "react"
+    ],
+    env: {
+        browser: true,
+    },
+    rules: {
+        "indent": ["warn", 4],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "no-console": "warn",
+        "arrow-parens": 0
+    }
+}

@@ -1,0 +1,54 @@
+@import '../common/main';
+.nav {
+	position: absolute;
+	top: 70px;
+	left: 0;
+	width: 285px;
+	height: calc(100% - 70px);
+	padding-top: 15px;
+	background: $defaultColor;
+	font-size: 16px;
+	color: #ccc;
+	overflow: auto;
+
+	.nav-list {
+		li {
+			height: 45px;
+			line-height: 45px;
+			padding: 0 30px;
+			cursor: pointer;
+
+			.iconfont {
+				margin-right: 15px;
+				font-size: 18px;
+			}
+
+			&.active {
+				background: $activeBgColor;
+				color: $activeColor;
+			}
+		}
+	}
+	.history {
+		position: absolute;
+		max-height: 400px;
+		width: 100%;
+		padding: 0 10px;
+		bottom: 20px;
+
+		h5 {
+			font-weight: normal;
+			font-size: 24px;
+		}
+		ul {
+			list-style: inherit;
+		}
+		a {
+			text-decoration: none;
+			color: #999;
+			&:hover {
+				color: $activeColor;
+			}
+		}
+	}
+}

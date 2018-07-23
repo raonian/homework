@@ -1,0 +1,31 @@
+$defaultColor: #2d4054;
+$shadowColor: #ececec;
+$hoverColor: #efefef;
+$activeColor: #00b4cf;
+$activeBgColor: #435466;
+$orange: #ff9a2a;
+$green: #7fbc39;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    background: #f3f3f3;
+    color: $defaultColor;
+}
+ul, ol {
+    list-style: none;
+}
+input, button {
+    outline: none;
+    border: none;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+button {
+    cursor: pointer;
+}

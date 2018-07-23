@@ -1,0 +1,73 @@
+@import '../common/main';
+.page-header {
+	position: fixed;
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	border-bottom: 1px solid #e2e2e2;
+	box-shadow: 0 2px 2px $shadowColor;
+	text-align: center;
+	background: #fff;
+	z-index: 2;
+
+	.title {
+		font-size: 34px;
+	}
+
+	.header-content {
+		position: relative;
+		width: 1200px;
+		margin: auto;
+	}
+
+	.user-info {
+		position: absolute;
+		right: 10px;
+		top: 0;
+		padding-right: 10px;
+
+		>.iconfont {
+			margin-left: 5px;
+		}
+		>img, >i {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		>img {
+			width: 40px;
+		}
+
+		.more-box {
+			display: none;
+			position: absolute;
+			right: 0;
+			top: 70px;
+			width: 110px;
+			padding: 5px 0;
+			background: #fff;
+			box-shadow: 0 1px 1px 1px $shadowColor;
+			text-align: left;
+
+			li {
+				height: 30px;
+				line-height: 30px;
+				padding: 0 10px;
+				cursor: pointer;
+
+				&:hover {
+					background: $hoverColor;
+				}
+
+				.iconfont {
+					margin-right: 5px;
+				}
+			}
+		}
+
+		&:hover {
+			.more-box {
+				display: block;
+			}
+		}
+	}
+}
