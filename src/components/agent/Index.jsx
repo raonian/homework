@@ -12,18 +12,36 @@ class Agent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: 'rn'
+            type: 'all',
+            openId: -1
         };
+        this.changeType = this.changeType.bind(this);
+        this.showPopup = this.showPopup.bind(this);
+        this.addResource = this.addResource.bind(this);
     }
     componentDidMount() {
-        this.props.fetchData(1);
+        this.props.fetchData();
+    }
+    changeType(type) {
+        this.setState({
+            type
+        });
+    }
+    showPopup(id) {
+        this.setState({
+            openId: id
+        });
+    }
+    addResource(data) {
+        this.props.putData(data);
     }
     render() {
+        const { type, openId } = this.state;
         return (
             <div className="agent-page">
-                <Card />
-                <Tabbar />
-                <List />
+                <Card {...this.props}/>
+                <Tabbar {...this.props} onChange={this.changeType} type={type} />
+                <List {...this.props} addResource={this.addResource} onPopupShow={this.showPopup} type={type} openId={openId} />
             </div>
         );
     }
@@ -32,7 +50,8 @@ class Agent extends Component {
 export default connect(
     state => ({ list: state.list}),
     dispath => ({
-        fetchData: id => dispath({ type: 'FETCH_DATA' , id })
+        fetchData: () => dispath({ type: 'FETCH_DATA' }),
+        putData: (data) => dispath({ type: 'PUT_DATA', data })
     })
 )(Agent);
 

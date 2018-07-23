@@ -13,13 +13,13 @@ const createStoreWithMiddleware = compose(
 export default function configureStore(initialState) {
     const store = createStoreWithMiddleware(reducer, initialState);
     sagaMiddleware.run(sagas);
-    if (module.hot) {
-        // Enable Webpack hot module replacement for reducers
-        module.hot.accept('../reducers/agent', () => {
-            const nextRootReducer = require('../reducers/agent');
-            store.replaceReducer(nextRootReducer);
-        });
-    }
+    // if (module.hot) {
+    //     // Enable Webpack hot module replacement for reducers
+    //     module.hot.accept('../reducers/agent', () => {
+    //         const nextRootReducer = require('../reducers/agent');
+    //         store.replaceReducer(nextRootReducer);
+    //     });
+    // }
 
     return store;
 }

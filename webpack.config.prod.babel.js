@@ -1,33 +1,35 @@
 // import path from 'path';
 // import webpack from 'webpack';
-
+// import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 import merge from 'webpack-merge';
 import baseConfig from './webpack.config.base.babel.js';
 
 export default merge(baseConfig, {
-    module: {
-        rules: [{
-            test: /\.scss$/,
-            use: ExtractTextPlugin.extract(
-              {
-                use: [
-                  'css-loader',
-                  'sass-loader'
-                ],
-                fallback: 'style-loader'
-              }
-            ),
-            exclude: /node_modules/
-        }],
-        postcss: [autoprefixer({browsers: ['last 2 versions']})]
-    },
+    // module: {
+    //     rules: [{
+    //         test: /\.(scss|css)$/,
+    //         use: ExtractTextPlugin.extract(
+    //             {
+    //                 use: [
+    //                     'css-loader',
+    //                     'sass-loader'
+    //                 ],
+    //                 fallback: 'style-loader'
+    //             }
+    //         ),
+    //         exclude: /node_modules/
+    //     }]
+    // },
+    devtool: 'source-map',
     plugins: [
-        new ExtractTextPlugin({
-            filename: '[name].css',
-            allChunks: true,
-            ignoreOrder: true
-        })
+        new CleanWebpackPlugin(['build'])
+        // new ExtractTextPlugin({
+        //     filename: '[name].css',
+        //     allChunks: true,
+        //     ignoreOrder: true
+        // })
     ],
     optimization: {
         splitChunks: {

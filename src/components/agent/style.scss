@@ -53,8 +53,23 @@
                 font-weight: bold;
             }
             .iconfont {
+                // display: flex;
+                // align-items: center;
+                width: 144px;
+                height: 143px;
+                line-height: 144px;
+                text-align: center;
+                overflow: hidden;
+
+                position: absolute;
+                left: 70px;
+                top: 0;
                 font-size: 144px;
                 opacity: .2;
+                transition: all .5s linear;
+            }
+            .icon-setting:hover {
+                transform: rotate(360deg);
             }
             .number {
                 position: absolute;
@@ -128,16 +143,18 @@
 
     .list{
         margin-top: 20px;
+        margin-bottom: 20px;
         .item{
             display: flex;
-            height: 120px;
+            height: 100px;
+            margin-top: 20px;
             align-items: stretch;
             background-color: #fff;
             .img{
-                margin: 10px;
+                margin: 10px 20px;
                 img{
-                    width: 100px;
-                    height: 100px;
+                    width: 80px;
+                    // height: 80px;
                 }
             }
             .detail{
@@ -184,6 +201,9 @@
                     .orange {
                         background: $orange;
                     }
+                    .green {
+                        background: $green;
+                    }
 
                     .add {
                         position: relative;
@@ -192,14 +212,16 @@
                         background: $activeColor;
                         color: #fff;
                         text-align: center;
-                        cursor: pointer;
+                        // cursor: pointer;
 
                         .iconfont {
                             margin: 0;
                             font-size: 18px;
+                            cursor: pointer;
                         }
 
                         .popup {
+                            display: none;
                             position: absolute;
                             left: -15px;
                             top: 50px;
@@ -210,6 +232,7 @@
                             box-shadow: 0px 3px 5px $hoverColor;
                             background: #fff;
                             text-align: left;
+                            z-index: 10;
                             p {
                                 height: 30px;
                                 color: $defaultColor;
@@ -268,6 +291,10 @@
                                     border-bottom: 20px solid #fff;
                                 }
                             }
+
+                            &.show {
+                                display: block;
+                            }
                         }
                     }
                     .resource {
@@ -296,3 +323,18 @@
     }
 }
 
+@media screen and (max-width: 1200px) {
+    .agent-page {
+        .card {
+            .card-item {
+                &:nth-of-type(3) {
+                    flex-direction: row;
+
+                    .left, .right {
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+}

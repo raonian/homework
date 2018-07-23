@@ -41,10 +41,10 @@ export default {
         }, {
             test: /\.(scss|css)$/,
             use: [
-              'style-loader',
-              'css-loader',
-              'sass-loader',
-              'postcss-loader'
+                'style-loader',
+                'css-loader',
+                'sass-loader',
+                'postcss-loader'
             ],
             exclude: /node_modules/
         }, {

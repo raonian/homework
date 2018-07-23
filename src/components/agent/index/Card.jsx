@@ -6,7 +6,35 @@ export default class Cards extends Component {
     constructor(props) {
         super(props);
     }
+    getNums(list) {
+        const nums = {
+            buildingNum: 0,
+            idleNum: 0,
+            allNum: 0,
+            physicalNum: 0,
+            virtualNum: 0
+        };
+        if(list) {
+            list.forEach(o => {
+                if(o.status === 'building') {
+                    nums.buildingNum++;
+                }
+                if(o.status === 'idle') {
+                    nums.idleNum++;
+                }
+                if(o.type === 'physical') {
+                    nums.physicalNum++;
+                }
+                if(o.type === 'virtual') {
+                    nums.virtualNum++;
+                }
+            }) ;
+        }
+        nums.allNum = nums.physicalNum + nums.virtualNum;
+        return nums;
+    }
     render() {
+        const { buildingNum, idleNum, allNum, physicalNum, virtualNum } = this.getNums(this.props.list);
         return (
             <div className="card">
                 <div className="card-item">

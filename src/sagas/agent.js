@@ -1,16 +1,18 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
-import { fetchList } from '../services/agent';
+import { call, put, takeEvery, take } from 'redux-saga/effects';
+import { fetchList, addData } from '../services/agent';
 // import { takeEvery } from 'redux-saga';
 
 function *fetchData(action) {
-    try {
-        const data = yield call(fetchList, action.id);
-        yield put({type: 'FETCH_SUCCEEDED', data});
-    } catch (error) {
-        yield put({type: 'FETCH_FAILED', error});
-    }
+    const data = yield call(fetchList, action.id);
+    yield put({type: 'FETCH_SUCCEEDED', payload: { list: data }});
+}
+
+function *putData(action) {
+    const data = yield call(addData, action.data);
+    yield put({type: 'FETCH_DATA'});
 }
 
 export default function *watchFetchData() {
     yield takeEvery('FETCH_DATA', fetchData);
+    yield takeEvery('PUT_DATA', putData);
 }

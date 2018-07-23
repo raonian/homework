@@ -13,24 +13,6 @@ const LOCAL_PORT = process.env.npm_package_server_local_port;
 
 export default merge(baseConfig, {
     devtool: 'cheap-module-source-map',
-    module: {
-        // rules: [{
-        //     test: /\.scss$/,
-        //     use: [
-        //       'style-loader',
-        //       {
-        //           loader: 'css-loader',
-        //           options: {
-        //               importLoaders: 1,
-        //               modules: true
-        //           }
-        //       },
-        //       'sass-loader',
-        //       'postcss-loader'
-        //     ],
-        //     exclude: /node_modules/
-        // }]
-    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),  // 热替换
         new CleanWebpackPlugin(['build']),                  // 清除编译目录
