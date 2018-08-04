@@ -16,3 +16,13 @@ export function addData(data) {
         })
     }).then(response => response.json());
 }
+
+export function addItem(data) {
+	return fetch(`${mockhost}/agents`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    }).then(response => response.json());
+}

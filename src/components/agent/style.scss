@@ -223,7 +223,7 @@
                             cursor: pointer;
                         }
 
-                        .popup {
+                        @at-root.popup {
                             display: none;
                             position: absolute;
                             left: -15px;

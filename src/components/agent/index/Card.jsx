@@ -40,12 +40,12 @@ export default class Cards extends Component {
                 <div className="card-item">
                     <span className="title">Building</span>
                     <i className="iconfont icon-setting"></i>
-                    <span className="number">3</span>
+                    <span className="number">{buildingNum}</span>
                 </div>
                 <div className="card-item">
                     <span className="title">Idle</span>
                     <i className="iconfont icon-cup"></i>
-                    <span className="number">5</span>
+                    <span className="number">{idleNum}</span>
                 </div>
                 <div className="card-item">
                     <div className="left">
@@ -54,9 +54,9 @@ export default class Cards extends Component {
                         <div><p>VIRTUAL</p></div>
                     </div>
                     <div className="right">
-                        <div><p>8</p></div>
-                        <div><p>4</p></div>
-                        <div><p>4</p></div>
+                        <div><p>{allNum}</p></div>
+                        <div><p>{physicalNum}</p></div>
+                        <div><p>{virtualNum}</p></div>
                     </div>
                 </div>
             </div>
